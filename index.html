@@ -1,0 +1,2409 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Vanesa & Néstor | 14.11.2026</title>
+
+
+    <!-- FUENTES -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        /* =====================================================
+           COLORES
+        ===================================================== */
+
+        :root {
+
+            --blanco: #fffdf9;
+
+            --marfil: #f8f4ee;
+
+            --beige: #e9dfd1;
+
+            --beige-claro: #f1e9de;
+
+            --champagne: #b79b76;
+
+            --dorado: #c5ad8c;
+
+            --cafe: #51463e;
+
+            --cafe-claro: #786c61;
+
+        }
+
+
+        /* =====================================================
+           GENERAL
+        ===================================================== */
+
+        * {
+
+            box-sizing: border-box;
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            background: var(--marfil);
+
+            color: var(--cafe);
+
+            font-family: "Montserrat", sans-serif;
+
+            overflow-x: hidden;
+
+        }
+
+
+        img {
+
+            max-width: 100%;
+
+            display: block;
+
+        }
+
+
+        a {
+
+            text-decoration: none;
+
+        }
+
+
+        button {
+
+            font-family: inherit;
+
+        }
+
+
+        /* =====================================================
+           BOTÓN MÚSICA
+        ===================================================== */
+
+        .boton-musica {
+
+            position: fixed;
+
+            top: 18px;
+
+            right: 18px;
+
+            z-index: 1000;
+
+            width: 48px;
+
+            height: 48px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255,255,255,0.75);
+
+            background: rgba(81,70,62,0.82);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            backdrop-filter: blur(8px);
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.18);
+
+            transition: transform .3s ease;
+
+        }
+
+
+        .boton-musica:hover {
+
+            transform: scale(1.08);
+
+        }
+
+
+        /* =====================================================
+           PORTADA
+        ===================================================== */
+
+        .portada {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 100svh;
+
+            min-height: 650px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+            background: var(--cafe);
+
+        }
+
+
+        .portada-imagen {
+
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            object-position: center center;
+
+            z-index: 1;
+
+        }
+
+
+        .portada::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(35,28,24,0.20),
+                    rgba(35,28,24,0.15) 40%,
+                    rgba(35,28,24,0.68)
+                );
+
+            z-index: 2;
+
+        }
+
+
+        .marco-portada {
+
+            position: absolute;
+
+            inset: 25px;
+
+            border: 1px solid rgba(255,255,255,0.7);
+
+            z-index: 3;
+
+            pointer-events: none;
+
+        }
+
+
+        .contenido-portada {
+
+            position: relative;
+
+            z-index: 4;
+
+            width: 90%;
+
+            max-width: 850px;
+
+            padding: 30px 15px;
+
+            text-align: center;
+
+            color: white;
+
+        }
+
+
+        .texto-superior {
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .nombres-portada {
+
+            font-family: "Great Vibes", cursive;
+
+            font-size: clamp(65px, 11vw, 115px);
+
+            line-height: .95;
+
+            font-weight: 400;
+
+            text-shadow:
+                0 3px 15px rgba(0,0,0,.35);
+
+        }
+
+
+        .linea-portada {
+
+            width: 70px;
+
+            height: 1px;
+
+            background: rgba(255,255,255,.85);
+
+            margin: 22px auto;
+
+        }
+
+
+        .fecha-portada {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(23px, 4vw, 34px);
+
+            letter-spacing: 4px;
+
+        }
+
+
+        .texto-portada {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 20px;
+
+            margin-top: 8px;
+
+        }
+
+
+        /* =====================================================
+           BOTONES
+        ===================================================== */
+
+        .boton {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-height: 48px;
+
+            padding: 13px 25px;
+
+            border-radius: 40px;
+
+            background: var(--cafe);
+
+            color: white;
+
+            font-size: 12px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            border: 1px solid var(--cafe);
+
+            transition: .3s ease;
+
+        }
+
+
+        .boton:hover {
+
+            transform: translateY(-2px);
+
+            background: #40362f;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.15);
+
+        }
+
+
+        .boton-claro {
+
+            background: transparent;
+
+            border-color: rgba(255,255,255,.85);
+
+            color: white;
+
+        }
+
+
+        .boton-claro:hover {
+
+            background: rgba(255,255,255,.15);
+
+        }
+
+
+        .boton-portada {
+
+            margin-top: 27px;
+
+        }
+
+
+        /* =====================================================
+           SECCIONES
+        ===================================================== */
+
+        .seccion {
+
+            width: 100%;
+
+            padding: 85px 20px;
+
+            text-align: center;
+
+        }
+
+
+        .seccion-marfil {
+
+            background: var(--marfil);
+
+        }
+
+
+        .seccion-blanca {
+
+            background: var(--blanco);
+
+        }
+
+
+        .seccion-beige {
+
+            background: var(--beige-claro);
+
+        }
+
+
+        .contenedor {
+
+            width: 100%;
+
+            max-width: 1000px;
+
+            margin: auto;
+
+        }
+
+
+        /* =====================================================
+           TÍTULOS
+        ===================================================== */
+
+        .etiqueta {
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            color: var(--champagne);
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .titulo {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(40px, 8vw, 68px);
+
+            font-weight: 500;
+
+            line-height: 1;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .titulo-script {
+
+            font-family: "Great Vibes", cursive;
+
+            font-size: clamp(48px, 10vw, 78px);
+
+            font-weight: 400;
+
+            line-height: 1;
+
+        }
+
+
+        .adorno {
+
+            color: var(--champagne);
+
+            font-size: 25px;
+
+            margin: 18px 0;
+
+        }
+
+
+        /* =====================================================
+           MENSAJE
+        ===================================================== */
+
+        .mensaje {
+
+            max-width: 700px;
+
+            margin: auto;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 22px;
+
+            line-height: 1.7;
+
+            color: var(--cafe-claro);
+
+        }
+
+
+        .firma {
+
+            margin-top: 25px;
+
+            font-family: "Great Vibes", cursive;
+
+            font-size: 40px;
+
+            color: var(--champagne);
+
+        }
+
+
+        /* =====================================================
+           CONTADOR
+        ===================================================== */
+
+        .contador {
+
+            width: 100%;
+
+            max-width: 650px;
+
+            margin: 35px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 10px;
+
+        }
+
+
+        .contador-caja {
+
+            background: rgba(255,255,255,.65);
+
+            border: 1px solid rgba(183,155,118,.35);
+
+            padding: 18px 5px;
+
+            border-radius: 10px;
+
+        }
+
+
+        .numero {
+
+            display: block;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(30px, 6vw, 48px);
+
+            font-weight: 600;
+
+        }
+
+
+        .unidad {
+
+            display: block;
+
+            margin-top: 4px;
+
+            font-size: 8px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            color: var(--cafe-claro);
+
+        }
+
+
+        /* =====================================================
+           DETALLES
+        ===================================================== */
+
+        .detalles {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+
+            margin-top: 35px;
+
+        }
+
+
+        .detalle {
+
+            padding: 30px 20px;
+
+            background: rgba(255,255,255,.55);
+
+            border: 1px solid rgba(183,155,118,.28);
+
+            border-radius: 12px;
+
+        }
+
+
+        .detalle-icono {
+
+            font-size: 25px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .detalle-titulo {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 28px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .detalle-texto {
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            color: var(--cafe-claro);
+
+        }
+
+
+        .detalle .boton {
+
+            margin-top: 18px;
+
+        }
+
+
+        /* =====================================================
+           GALERÍA
+        ===================================================== */
+
+        .galeria {
+
+            width: 100%;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+
+            margin-top: 35px;
+
+        }
+
+
+        /*
+           IMPORTANTE:
+           No usamos altura fija.
+
+           Así cada fotografía conserva
+           completamente su proporción.
+        */
+
+        .foto-galeria {
+
+            width: 100%;
+
+            height: auto;
+
+            object-fit: contain;
+
+            background: var(--beige);
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            transition:
+                transform .35s ease,
+                box-shadow .35s ease;
+
+        }
+
+
+        .foto-galeria:hover {
+
+            transform: scale(1.015);
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,.12);
+
+        }
+
+
+        /* =====================================================
+           VISOR
+        ===================================================== */
+
+        .visor {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 2000;
+
+            background: rgba(30,25,22,.96);
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+        }
+
+
+        .visor.activo {
+
+            display: flex;
+
+        }
+
+
+        .visor-imagen {
+
+            max-width: 92vw;
+
+            max-height: 82vh;
+
+            width: auto;
+
+            height: auto;
+
+            object-fit: contain;
+
+        }
+
+
+        .visor-cerrar,
+        .visor-anterior,
+        .visor-siguiente {
+
+            position: absolute;
+
+            width: 45px;
+
+            height: 45px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255,255,255,.5);
+
+            background: rgba(255,255,255,.08);
+
+            color: white;
+
+            cursor: pointer;
+
+        }
+
+
+        .visor-cerrar {
+
+            top: 15px;
+
+            right: 18px;
+
+            font-size: 28px;
+
+        }
+
+
+        .visor-anterior {
+
+            left: 15px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            font-size: 25px;
+
+        }
+
+
+        .visor-siguiente {
+
+            right: 15px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            font-size: 25px;
+
+        }
+
+
+        /* =====================================================
+           CONFIRMACIÓN
+        ===================================================== */
+
+        .confirmacion {
+
+            background: var(--beige-claro);
+
+        }
+
+
+        .confirmacion .mensaje {
+
+            margin-bottom: 28px;
+
+        }
+
+
+        /* =====================================================
+           CIERRE
+        ===================================================== */
+
+        .cierre {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 85svh;
+
+            min-height: 620px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+            background: var(--cafe);
+
+        }
+
+
+        /*
+           AQUÍ ESTÁ EL CAMBIO IMPORTANTE.
+
+           Volvemos a COVER para que la fotografía
+           ocupe toda la sección.
+
+           La posición 50% 45% mantiene los rostros
+           en una zona visible.
+        */
+
+        .cierre-imagen {
+
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            object-position: center 45%;
+
+            z-index: 1;
+
+        }
+
+
+        .cierre::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(40,32,27,.10),
+                    rgba(40,32,27,.18) 45%,
+                    rgba(40,32,27,.70)
+                );
+
+            z-index: 2;
+
+        }
+
+
+        .cierre-contenido {
+
+            position: relative;
+
+            z-index: 3;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 30px;
+
+            margin-top: 100px;
+
+        }
+
+
+        .cierre-nombres {
+
+            font-family: "Great Vibes", cursive;
+
+            font-size: clamp(58px, 11vw, 100px);
+
+            font-weight: 400;
+
+            line-height: 1;
+
+            text-shadow:
+                0 3px 15px rgba(0,0,0,.40);
+
+        }
+
+
+        .cierre-texto {
+
+            margin-top: 20px;
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+
+            line-height: 1.8;
+
+            text-shadow:
+                0 2px 8px rgba(0,0,0,.45);
+
+        }
+
+
+        /* =====================================================
+           ANIMACIÓN
+        ===================================================== */
+
+        .revelar {
+
+            animation:
+                aparecer 1.3s ease both;
+
+        }
+
+
+        @keyframes aparecer {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(20px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            background: var(--cafe);
+
+            color: rgba(255,255,255,.7);
+
+            text-align: center;
+
+            padding: 25px 15px;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (min-width: 650px) {
+
+            .seccion {
+
+                padding: 100px 40px;
+
+            }
+
+
+            .marco-portada {
+
+                inset: 35px;
+
+            }
+
+
+            .galeria {
+
+                gap: 15px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           ESCRITORIO
+        ===================================================== */
+
+        @media (min-width: 900px) {
+
+            .portada {
+
+                min-height: 100vh;
+
+            }
+
+
+            .galeria {
+
+                grid-template-columns:
+                    repeat(4, 1fr);
+
+            }
+
+
+            .cierre {
+
+                height: 90vh;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           CELULAR
+        ===================================================== */
+
+        @media (max-width: 649px) {
+
+            .portada {
+
+                height: 100svh;
+
+                min-height: 620px;
+
+            }
+
+
+            .marco-portada {
+
+                inset: 15px;
+
+            }
+
+
+            .contenido-portada {
+
+                width: 94%;
+
+                padding: 20px 8px;
+
+            }
+
+
+            .texto-superior {
+
+                font-size: 9px;
+
+                letter-spacing: 2.5px;
+
+            }
+
+
+            .nombres-portada {
+
+                font-size: clamp(52px, 15vw, 72px);
+
+            }
+
+
+            .fecha-portada {
+
+                font-size: 22px;
+
+                letter-spacing: 3px;
+
+            }
+
+
+            .texto-portada {
+
+                font-size: 18px;
+
+            }
+
+
+            .seccion {
+
+                padding: 65px 18px;
+
+            }
+
+
+            .mensaje {
+
+                font-size: 20px;
+
+            }
+
+
+            .detalles {
+
+                grid-template-columns: 1fr;
+
+                gap: 15px;
+
+            }
+
+
+            /*
+               GALERÍA:
+               2 columnas y fotografía completa.
+            */
+
+            .galeria {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 8px;
+
+            }
+
+
+            /*
+               CIERRE EN CELULAR:
+               casi cuadrado para que se vea
+               como una composición de foto.
+            */
+
+            .cierre {
+
+                height: auto;
+
+                min-height: 0;
+
+                aspect-ratio: 1 / 1;
+
+            }
+
+
+            .cierre-imagen {
+
+                object-position: center 42%;
+
+            }
+
+
+            .cierre-contenido {
+
+                margin-top: 80px;
+
+                padding: 20px;
+
+            }
+
+
+            .cierre-nombres {
+
+                font-size: clamp(52px, 14vw, 75px);
+
+            }
+
+
+            .cierre-texto {
+
+                font-size: 9px;
+
+                letter-spacing: 2px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           CELULARES MUY PEQUEÑOS
+        ===================================================== */
+
+        @media (max-width: 380px) {
+
+            .boton-musica {
+
+                width: 43px;
+
+                height: 43px;
+
+                top: 12px;
+
+                right: 12px;
+
+            }
+
+
+            .marco-portada {
+
+                inset: 11px;
+
+            }
+
+
+            .nombres-portada {
+
+                font-size: 50px;
+
+            }
+
+
+            .contador {
+
+                gap: 5px;
+
+            }
+
+
+            .contador-caja {
+
+                padding: 14px 3px;
+
+            }
+
+
+            .numero {
+
+                font-size: 27px;
+
+            }
+
+
+            .unidad {
+
+                font-size: 7px;
+
+                letter-spacing: 1px;
+
+            }
+
+
+            .galeria {
+
+                gap: 6px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         MÚSICA
+    ====================================================== -->
+
+    <audio
+        id="cancion"
+        loop
+        preload="metadata">
+
+        <source
+            src="Christina_Perri_A_Thousand_Years.mp3"
+            type="audio/mpeg">
+
+    </audio>
+
+
+    <button
+        class="boton-musica"
+        id="botonMusica"
+        aria-label="Reproducir música">
+
+        ♫
+
+    </button>
+
+
+
+    <!-- =====================================================
+         PORTADA
+    ====================================================== -->
+
+    <section class="portada">
+
+        <img
+            src="foto1.png"
+            alt="Vanesa y Néstor"
+            class="portada-imagen">
+
+
+        <div class="marco-portada"></div>
+
+
+        <div class="contenido-portada revelar">
+
+            <p class="texto-superior">
+
+                Con alegría en nuestros corazones
+
+            </p>
+
+
+            <h1 class="nombres-portada">
+
+                Vanesa & Néstor
+
+            </h1>
+
+
+            <div class="linea-portada"></div>
+
+
+            <p class="fecha-portada">
+
+                14 · 11 · 2026
+
+            </p>
+
+
+            <p class="texto-portada">
+
+                Nos casamos
+
+            </p>
+
+
+            <a
+                href="#invitacion"
+                class="boton boton-claro boton-portada"
+                id="abrirInvitacion">
+
+                Abrir invitación
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MENSAJE
+    ====================================================== -->
+
+    <section
+        class="seccion seccion-marfil"
+        id="invitacion">
+
+        <div class="contenedor">
+
+            <p class="etiqueta">
+
+                Una historia que continúa
+
+            </p>
+
+
+            <h2 class="titulo-script">
+
+                ¡Nos casamos!
+
+            </h2>
+
+
+            <div class="adorno">
+
+                ♡
+
+            </div>
+
+
+            <p class="mensaje">
+
+                Hay momentos que guardamos para siempre
+                en el corazón, y hoy queremos compartir
+                uno de los más importantes de nuestra vida.
+
+                <br><br>
+
+                Con mucha alegría queremos invitarte
+                a celebrar junto a nosotros el comienzo
+                de esta nueva etapa.
+
+            </p>
+
+
+            <p class="firma">
+
+                Vanesa & Néstor
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CUENTA REGRESIVA
+    ====================================================== -->
+
+    <section class="seccion seccion-blanca">
+
+        <div class="contenedor">
+
+            <p class="etiqueta">
+
+                Falta muy poco
+
+            </p>
+
+
+            <h2 class="titulo">
+
+                Nuestro gran día
+
+            </h2>
+
+
+            <div class="adorno">
+
+                ✦
+
+            </div>
+
+
+            <div class="contador">
+
+
+                <div class="contador-caja">
+
+                    <span
+                        class="numero"
+                        id="dias">
+
+                        0
+
+                    </span>
+
+                    <span class="unidad">
+
+                        días
+
+                    </span>
+
+                </div>
+
+
+                <div class="contador-caja">
+
+                    <span
+                        class="numero"
+                        id="horas">
+
+                        0
+
+                    </span>
+
+                    <span class="unidad">
+
+                        horas
+
+                    </span>
+
+                </div>
+
+
+                <div class="contador-caja">
+
+                    <span
+                        class="numero"
+                        id="minutos">
+
+                        0
+
+                    </span>
+
+                    <span class="unidad">
+
+                        minutos
+
+                    </span>
+
+                </div>
+
+
+                <div class="contador-caja">
+
+                    <span
+                        class="numero"
+                        id="segundos">
+
+                        0
+
+                    </span>
+
+                    <span class="unidad">
+
+                        segundos
+
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         DETALLES DEL EVENTO
+    ====================================================== -->
+
+    <section class="seccion seccion-beige">
+
+        <div class="contenedor">
+
+            <p class="etiqueta">
+
+                Celebremos juntos
+
+            </p>
+
+
+            <h2 class="titulo">
+
+                Detalles del evento
+
+            </h2>
+
+
+            <div class="adorno">
+
+                ♡
+
+            </div>
+
+
+            <div class="detalles">
+
+
+                <div class="detalle">
+
+                    <div class="detalle-icono">
+
+                        ♡
+
+                    </div>
+
+
+                    <h3 class="detalle-titulo">
+
+                        Fecha
+
+                    </h3>
+
+
+                    <p class="detalle-texto">
+
+                        Sábado
+
+                        <br>
+
+                        <strong>
+                            14 de noviembre de 2026
+                        </strong>
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="detalle">
+
+                    <div class="detalle-icono">
+
+                        ✦
+
+                    </div>
+
+
+                    <h3 class="detalle-titulo">
+
+                        Hora
+
+                    </h3>
+
+
+                    <p class="detalle-texto">
+
+                        La celebración comenzará
+
+                        <br>
+
+                        a las
+
+                        <strong>
+                            7:30 p. m.
+                        </strong>
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="detalle">
+
+                    <div class="detalle-icono">
+
+                        ♧
+
+                    </div>
+
+
+                    <h3 class="detalle-titulo">
+
+                        Recepción
+
+                    </h3>
+
+
+                    <p class="detalle-texto">
+
+                        Altos del Hostal Guerrero
+
+                        <br><br>
+
+                        Pardo Miguel 424
+
+                        <br>
+
+                        Jaén, Cajamarca
+
+                    </p>
+
+
+                    <a
+                        class="boton"
+                        href="https://www.google.com/maps/search/?api=1&query=Altos+del+Hostal+Guerrero%2C+Pardo+Miguel+424%2C+Jaen%2C+Cajamarca%2C+Peru"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        📍 Ver ubicación
+
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         GALERÍA
+         
+         FOTO 1 = PORTADA
+         FOTO 2,3,4,5 = GALERÍA
+    ====================================================== -->
+
+    <section class="seccion seccion-blanca">
+
+        <div class="contenedor">
+
+            <p class="etiqueta">
+
+                Nuestros recuerdos
+
+            </p>
+
+
+            <h2 class="titulo-script">
+
+                Momentos
+
+            </h2>
+
+
+            <div class="adorno">
+
+                ♡
+
+            </div>
+
+
+            <p class="mensaje">
+
+                Un pequeño vistazo a algunos
+                de nuestros momentos especiales.
+
+            </p>
+
+
+            <div class="galeria">
+
+
+                <img
+                    src="foto2.png"
+                    alt="Vanesa y Néstor"
+                    class="foto-galeria"
+                    data-foto="0">
+
+
+                <img
+                    src="foto3.png"
+                    alt="Vanesa y Néstor"
+                    class="foto-galeria"
+                    data-foto="1">
+
+
+                <img
+                    src="foto4.png"
+                    alt="Vanesa y Néstor"
+                    class="foto-galeria"
+                    data-foto="2">
+
+
+                <img
+                    src="foto5.png"
+                    alt="Vanesa y Néstor"
+                    class="foto-galeria"
+                    data-foto="3">
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         VISOR DE GALERÍA
+    ====================================================== -->
+
+    <div
+        class="visor"
+        id="visor">
+
+
+        <button
+            class="visor-cerrar"
+            id="visorCerrar">
+
+            ×
+
+        </button>
+
+
+        <button
+            class="visor-anterior"
+            id="visorAnterior">
+
+            ‹
+
+        </button>
+
+
+        <img
+            src=""
+            alt="Fotografía ampliada"
+            class="visor-imagen"
+            id="visorImagen">
+
+
+        <button
+            class="visor-siguiente"
+            id="visorSiguiente">
+
+            ›
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CONFIRMACIÓN
+    ====================================================== -->
+
+    <section class="seccion confirmacion">
+
+        <div class="contenedor">
+
+            <p class="etiqueta">
+
+                Tu presencia es muy importante
+
+            </p>
+
+
+            <h2 class="titulo-script">
+
+                ¿Nos acompañas?
+
+            </h2>
+
+
+            <div class="adorno">
+
+                ♡
+
+            </div>
+
+
+            <p class="mensaje">
+
+                Nos encantará compartir este día
+                tan especial contigo.
+
+                <br><br>
+
+                Por favor, confirma tu asistencia
+                haciendo clic en el botón.
+
+            </p>
+
+
+            <a
+                class="boton"
+                href="https://wa.me/51993553094?text=Hola%20Vanesa%20🥳%20Quiero%20confirmar%20mi%20asistencia%20a%20tú%20boda%20el%2014%20de%20noviembre%20de%202026.%20%0A%0A%C2%A1Muchas%20gracias%20por%20la%20invitaci%C3%B3n!%20%F0%9F%A4%8D%E2%9C%A8"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                💌 Confirmar asistencia por WhatsApp
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CIERRE
+    ====================================================== -->
+
+    <section class="cierre">
+
+
+        <img
+            src="foto5.png"
+            alt="Vanesa y Néstor"
+            class="cierre-imagen">
+
+
+        <div class="cierre-contenido revelar">
+
+
+            <h2 class="cierre-nombres">
+
+                Vanesa & Néstor
+
+            </h2>
+
+
+            <p class="cierre-texto">
+
+                GRACIAS POR SER PARTE
+
+                <br>
+
+                DE NUESTRA HISTORIA
+
+            </p>
+
+
+            <p class="cierre-texto">
+
+                14 · 11 · 2026
+
+            </p>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        Vanesa & Néstor
+
+        <br>
+
+        14 · 11 · 2026
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           MÚSICA
+        ===================================================== */
+
+        const cancion =
+            document.getElementById("cancion");
+
+
+        const botonMusica =
+            document.getElementById("botonMusica");
+
+
+        const abrirInvitacion =
+            document.getElementById("abrirInvitacion");
+
+
+        let musicaReproduciendo = false;
+
+
+        async function reproducirMusica() {
+
+            try {
+
+                await cancion.play();
+
+                musicaReproduciendo = true;
+
+                botonMusica.textContent = "♫";
+
+            }
+
+            catch (error) {
+
+                console.log(
+                    "El navegador bloqueó la reproducción."
+                );
+
+            }
+
+        }
+
+
+        botonMusica.addEventListener(
+            "click",
+            async function () {
+
+                if (musicaReproduciendo) {
+
+                    cancion.pause();
+
+                    musicaReproduciendo = false;
+
+                    botonMusica.textContent = "♪";
+
+                }
+
+                else {
+
+                    await reproducirMusica();
+
+                }
+
+            }
+        );
+
+
+        abrirInvitacion.addEventListener(
+            "click",
+            async function () {
+
+                await reproducirMusica();
+
+            }
+        );
+
+
+
+        /* =====================================================
+           CUENTA REGRESIVA
+        ===================================================== */
+
+        const fechaBoda =
+            new Date(
+                "2026-11-14T19:30:00-05:00"
+            );
+
+
+        function actualizarContador() {
+
+            const ahora =
+                new Date();
+
+
+            const diferencia =
+                fechaBoda.getTime()
+                -
+                ahora.getTime();
+
+
+            if (diferencia <= 0) {
+
+                document.getElementById("dias")
+                    .textContent = "0";
+
+                document.getElementById("horas")
+                    .textContent = "0";
+
+                document.getElementById("minutos")
+                    .textContent = "0";
+
+                document.getElementById("segundos")
+                    .textContent = "0";
+
+                return;
+
+            }
+
+
+            const dias =
+                Math.floor(
+                    diferencia /
+                    (1000 * 60 * 60 * 24)
+                );
+
+
+            const horas =
+                Math.floor(
+                    (diferencia /
+                    (1000 * 60 * 60)) % 24
+                );
+
+
+            const minutos =
+                Math.floor(
+                    (diferencia /
+                    (1000 * 60)) % 60
+                );
+
+
+            const segundos =
+                Math.floor(
+                    (diferencia / 1000) % 60
+                );
+
+
+            document.getElementById("dias")
+                .textContent = dias;
+
+
+            document.getElementById("horas")
+                .textContent = horas;
+
+
+            document.getElementById("minutos")
+                .textContent = minutos;
+
+
+            document.getElementById("segundos")
+                .textContent = segundos;
+
+        }
+
+
+        actualizarContador();
+
+        setInterval(
+            actualizarContador,
+            1000
+        );
+
+
+
+        /* =====================================================
+           GALERÍA
+        ===================================================== */
+
+        const fotos = [
+
+            "foto2.png",
+
+            "foto3.png",
+
+            "foto4.png",
+
+            "foto5.png"
+
+        ];
+
+
+        const imagenesGaleria =
+            document.querySelectorAll(
+                ".foto-galeria"
+            );
+
+
+        const visor =
+            document.getElementById(
+                "visor"
+            );
+
+
+        const visorImagen =
+            document.getElementById(
+                "visorImagen"
+            );
+
+
+        const visorCerrar =
+            document.getElementById(
+                "visorCerrar"
+            );
+
+
+        const visorAnterior =
+            document.getElementById(
+                "visorAnterior"
+            );
+
+
+        const visorSiguiente =
+            document.getElementById(
+                "visorSiguiente"
+            );
+
+
+        let fotoActual = 0;
+
+
+
+        function mostrarFoto(indice) {
+
+            if (indice < 0) {
+
+                indice =
+                    fotos.length - 1;
+
+            }
+
+
+            if (indice >= fotos.length) {
+
+                indice = 0;
+
+            }
+
+
+            fotoActual = indice;
+
+
+            visorImagen.src =
+                fotos[fotoActual];
+
+
+            visor.classList.add(
+                "activo"
+            );
+
+
+            document.body.style.overflow =
+                "hidden";
+
+        }
+
+
+
+        function cerrarVisor() {
+
+            visor.classList.remove(
+                "activo"
+            );
+
+
+            document.body.style.overflow =
+                "";
+
+        }
+
+
+
+        imagenesGaleria.forEach(
+            function(imagen) {
+
+                imagen.addEventListener(
+                    "click",
+                    function() {
+
+                        const indice =
+                            Number(
+                                imagen.getAttribute(
+                                    "data-foto"
+                                )
+                            );
+
+
+                        mostrarFoto(indice);
+
+                    }
+                );
+
+            }
+        );
+
+
+
+        visorCerrar.addEventListener(
+            "click",
+            cerrarVisor
+        );
+
+
+        visorAnterior.addEventListener(
+            "click",
+            function() {
+
+                mostrarFoto(
+                    fotoActual - 1
+                );
+
+            }
+        );
+
+
+        visorSiguiente.addEventListener(
+            "click",
+            function() {
+
+                mostrarFoto(
+                    fotoActual + 1
+                );
+
+            }
+        );
+
+
+        visor.addEventListener(
+            "click",
+            function(evento) {
+
+                if (
+                    evento.target === visor
+                ) {
+
+                    cerrarVisor();
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           TECLADO
+        ===================================================== */
+
+        document.addEventListener(
+            "keydown",
+            function(evento) {
+
+                if (
+                    !visor.classList.contains(
+                        "activo"
+                    )
+                ) {
+
+                    return;
+
+                }
+
+
+                if (
+                    evento.key === "Escape"
+                ) {
+
+                    cerrarVisor();
+
+                }
+
+
+                if (
+                    evento.key === "ArrowLeft"
+                ) {
+
+                    mostrarFoto(
+                        fotoActual - 1
+                    );
+
+                }
+
+
+                if (
+                    evento.key === "ArrowRight"
+                ) {
+
+                    mostrarFoto(
+                        fotoActual + 1
+                    );
+
+                }
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
